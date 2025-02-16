@@ -3,17 +3,38 @@
 #tpm 
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 # UI changes
-set -g @plugin 'catppuccin/tmux#latest'
-set -g @plugin 'tmux-plugins/tpm'
-set -g @catppuccin_status_modules_right "date_time application session"
+
+set -g @plugin 'niksingh710/minimal-tmux-status'
+
+set -g status-fg white
+
+#################################################
+
+
+
+
+# prefix highlight plugin 
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+
+# Add prefix highlighting to the right side of tmux
+set -g status-right '#{prefix_highlight} | %a %Y-%m-%d %H:%M'
+
+# Start windows on 1 instead of 0
+
+set -g base-index 1
+setw -g pane-base-index 1
+
 
 # KEYBINDS
 bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+set -g mouse on
 
 bind r source-file ~/.tmux.conf
 
